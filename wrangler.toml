@@ -1,0 +1,42 @@
+name = "mailfree"
+# name = "mail-exhibit"
+main = "src/server.js"
+compatibility_date = "2024-01-01"
+
+# D1 数据库绑定
+[[d1_databases]]
+binding = "TEMP_MAIL_DB"
+database_name = "maill_free_db" #你的d1数据库名称
+database_id = "fa92c176-b799-4eb0-9b0f-21c68b36bc61" # 你的database_id
+# 登录会话过期时间（单位：天，默认365天）
+# 环境变量
+[vars]
+# FORWARD_RULES="[{"prefix":"vip","email":"a@example.com"},{"prefix":"*","email":"2141083706@qq.com"}]"
+ADMIN_NAME="lilongtao"
+ADMIN_PASSWORD="2991S10m62y"
+GUEST_PASSWORD="qwe!2345678"
+JWT_TOKEN="ieruodjfskdfabc"
+JWT_TOKENGUEST_PASSWORD="abcdfsfjlisejflsalsdhfsjkfjdaw"
+SESSION_EXPIRE_DAYS="365"
+MAIL_DOMAIN="gateapi.cn"
+RESEND_API_KEY="ak_8c506dfa466b9cb56cc139f38541e28799ad10d17e068510"
+
+
+
+# 静态资源目录（Workers + Assets）
+[assets]
+directory = "public"
+# 显式指定绑定名，确保在 Worker 中通过 env.ASSETS 可用
+binding = "ASSETS"
+
+
+# R2 存储桶绑定（用于保存完整 EML 内容）
+[[r2_buckets]]
+binding = "MAIL_EML"
+bucket_name = "mail-eml"
+
+# wrangler.toml (wrangler v3.88.0^) 日志服务
+# [observability.logs]
+# enabled = true
+
+
